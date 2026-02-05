@@ -5,8 +5,12 @@ import { resend } from "../../lib/resend";
 
 export const gold = new Hono()
 
+const TO_EMAILS = [
+    "sudhanshuneravati@gmail.com"
+]
+
 gold.get("/", async c => {
-    
+
     try {
         // 1. Fetch page
         const response = await fetch("https://www.tickertape.in/digital-gold", {
@@ -47,8 +51,9 @@ Source: Tickertape (Digital Gold)
 
         // Send email
         await resend.emails.send({
-            from: "Acme <no-reply@unown.sbs>",
-            to: "voltantroyer2@gmail.com",
+            from: "Gold Tracker <gold@unown.sbs>",
+            // to: "voltantroyer2@gmail.com",
+            to: TO_EMAILS,
             subject: "Daily Gold Price",
             text: emailText,
         });
@@ -68,5 +73,5 @@ Source: Tickertape (Digital Gold)
         });
 
     }
-    
+
 })
