@@ -4,6 +4,7 @@
     "dev": "bun run --hot ./index.ts"
   },
   "dependencies": {
+    "cheerio": "^1.2.0",
     "hono": "^4.11.7",
     "resend": "^6.9.1"
   },
